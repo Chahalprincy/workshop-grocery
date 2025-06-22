@@ -27,6 +27,8 @@ const inventory = [
  */
 function logNames(items) {
   // TODO: use `forEach`
+  items.forEach((n) => console.log(n.name))
+  return null
 }
 
 /**
@@ -35,6 +37,7 @@ function logNames(items) {
  */
 function getUppercaseNames(items) {
   // TODO: use `map`
+  return items.map((n) => (n.name.toUpperCase()))
 }
 
 /**
@@ -44,6 +47,7 @@ function getUppercaseNames(items) {
  */
 function getItemById(items, id) {
   // TODO: use `find`
+  return items.find((n) => (n.id === id))
 }
 
 /**
@@ -53,6 +57,16 @@ function getItemById(items, id) {
  */
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
+  // let res = items.find((n) => (n.name === name))
+  // return res["price"]
+
+  for (const item of items) {
+    if (item.name === name) {
+      return item.price;
+    } else {
+      return undefined;
+    }
+  }
 }
 
 /**
@@ -62,6 +76,8 @@ function getItemPriceByName(items, name) {
  */
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
+  return items.filter((n) => (n.category === category));
+
 }
 
 /**
@@ -70,6 +86,7 @@ function getItemsByCategory(items, category) {
  */
 function countItems(items) {
   // TODO: use `reduce`
+  return items.reduce((accumulator, currentValue) => accumulator+currentValue.quantity,0,)
 }
 
 /**
@@ -78,6 +95,7 @@ function countItems(items) {
  */
 function getTotalPrice(items) {
   // TODO: use `reduce`
+  return items.reduce((accumulator, currentValue) => accumulator+currentValue.price,0,)
 }
 
 // === READ BUT DO NOT CHANGE THE CODE BELOW ===
